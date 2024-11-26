@@ -411,7 +411,6 @@ class DeepQLearningAgent(Agent):
             if 'action_prev_dense' in name or 'action_values' in name:
                 param.requires_grad = True
 
-
     def get_action_proba(self, board, values=None):
         """Returns the action probability values using the DQN model
 
@@ -575,7 +574,6 @@ class DeepQLearningAgent(Agent):
         # we return the calculated loss
         return loss.item()
 
-
     def update_target_net(self):
         """Update the weights of the target network, which is kept
         static for a few iterations to stabilize the other network.
@@ -584,6 +582,7 @@ class DeepQLearningAgent(Agent):
         if(self._use_target_net):
             # update the target network weights
             self._target_net.load_state_dict(self._model.state_dict())
+    
     def compare_weights(self):
         """Simple utility function to check if the model and target
         network have the same weights or not
@@ -601,7 +600,6 @@ class DeepQLearningAgent(Agent):
         # update weights by copying from another agent
         self._model.set_weights(agent_for_copy._model.get_weights())
         self._target_net.set_weights(agent_for_copy._model_pred.get_weights())
-
 
 class BreadthFirstSearchAgent(Agent):
     """
@@ -719,18 +717,6 @@ class BreadthFirstSearchAgent(Agent):
             else:
                 a[i] = 0
         return a
-        """
-        d1 = (curr_head_row - prev_head_row, curr_head_col - prev_head_col)
-        d2 = (next_head_row - curr_head_row, next_head_col - curr_head_col)
-        # take cross product
-        turn_dir = d1[0]*d2[1] - d1[1]*d2[0]
-        if(turn_dir == 0):
-            return 1
-        elif(turn_dir == -1):
-            return 0
-        else:
-            return 2
-        """
 
     def get_action_proba(self, board, values):
         """ for compatibility """
