@@ -11,13 +11,3 @@ The trained model and its checkpoints are found in the /models/ folder
 command: "python [game_visualization.py](../game_visualization.py)"
 
 Game visualizations are output into the /output/ folder
-
-# Additional dependencies
-
-None
-
-# Snake Reinforcement Learning
-
-Code for training a Deep Reinforcement Learning agent to play the game of Snake.
-The agent takes 2 frames of the game as input (image) and predicts the action values for
-the next action to take.
