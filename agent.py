@@ -482,10 +482,10 @@ class DeepQLearningAgent(Agent):
         else:
             iteration = 0
         # load the state dictionaries of the model and target network
-        model_state_dict = torch.load("{}/model_{:04d}.h5".format(file_path, iteration))
+        model_state_dict = torch.load("{}/model_{:04d}.h5".format(file_path, iteration), map_location=torch.device('cpu'))
         self._model.load_state_dict(model_state_dict)
         if(self._use_target_net):
-            model_target_state_dict = torch.load("{}/model_{:04d}_target.h5".format(file_path, iteration))
+            model_target_state_dict = torch.load("{}/model_{:04d}_target.h5".format(file_path, iteration), map_location=torch.device('cpu'))
             self._target_net.load_state_dict(model_target_state_dict)
         # print("Couldn't locate models at {}, check provided path".format(file_path))
 
