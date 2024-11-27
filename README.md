@@ -1,6 +1,6 @@
 # Running Graded assignment 02. 
 
-### 1. Train the model (first runs 1 full iteration of BFS, then runs 300 iterations of DeepQ)
+### 1. Train the model
 
 command: "python [training.py](../training.py)"
 
