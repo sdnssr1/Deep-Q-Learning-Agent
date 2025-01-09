@@ -1,4 +1,4 @@
-# Running Graded assignment 02. 
+# Running the Agent. 
 
 ### 1. Train the model
 
